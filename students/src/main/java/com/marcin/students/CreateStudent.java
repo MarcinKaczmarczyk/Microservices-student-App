@@ -15,14 +15,14 @@ public class CreateStudent {
         this.studentRepository = studentRepository;
     }
 
-//    @PostConstruct
-//    void createStudents() {
-//        for (int i = 1; i <= 10; i++) {
-//            Student student=new Student("marian"+i,"ziomo"+i,"cybermarian"+i+"@gmail.com");
-//            student.setActive(i > 6);
-//            studentRepository.save(student);
-//        }
-//        System.out.println("poszło");
-//
-//    }
+    @PostConstruct
+    void createStudents() {
+        for (int i = 1; i <= 10; i++) {
+            Student student=new Student("marian"+i,"ziomo"+i,"cybermarian"+i+"@gmail.com");
+            student.setActive(i > 6);
+            studentRepository.save(student);
+        }
+        System.out.println("poszło");
+
+    }
 }

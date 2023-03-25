@@ -1,7 +1,7 @@
-package com.marcin.courses.exception;
+package com.marcin.courses.exception.course;
 
 public class CoursesException extends RuntimeException{
-    private CoursesError coursesError;
+    private final CoursesError coursesError;
 
    public CoursesException(CoursesError coursesError){
        this.coursesError=coursesError;

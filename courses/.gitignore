@@ -31,3 +31,5 @@ build/
 
 ### VS Code ###
 .vscode/
+/src/main/java/com/marcin/courses/exception/feing/
+/src/main/resources/

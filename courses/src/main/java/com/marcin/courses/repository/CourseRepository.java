@@ -1,7 +1,7 @@
 package com.marcin.courses.repository;
 
 import com.marcin.courses.model.Course;
-import com.marcin.courses.exception.CourseStatus;
+import com.marcin.courses.model.CourseStatus;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;

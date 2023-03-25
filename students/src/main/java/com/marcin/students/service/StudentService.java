@@ -19,5 +19,5 @@ public interface StudentService {
 
     Student patchStudent(Long id, Student student);
 
-
+    List<Student> getStudentsByEmails(List<String> emails);
 }

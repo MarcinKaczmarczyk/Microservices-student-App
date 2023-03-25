@@ -42,8 +42,8 @@ public class CoursesApplication {
 //    }
 
 
-    @PostConstruct
-    public void enu(){
-
-    }
+//    @PostConstruct
+//    public void enu(){
+//
+//    }
 }

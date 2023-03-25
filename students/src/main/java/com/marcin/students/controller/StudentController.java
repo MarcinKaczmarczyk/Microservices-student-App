@@ -1,24 +1,29 @@
 package com.marcin.students.controller;
 
 import com.marcin.students.model.Student;
+import com.marcin.students.repository.StudentRepository;
 import com.marcin.students.service.StudentService;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
 @RequestMapping("/students")
 public class StudentController {
 
-    private StudentService studentService;
+    private final StudentService studentService;
 
     public StudentController(StudentService studentService) {
         this.studentService = studentService;
+
     }
 
+    @PostMapping("/emails")
+    public List<Student> getListByEmails(@RequestBody List<String> emails){
+        return studentService.getStudentsByEmails(emails);
+    }
 
     @GetMapping()
     public List<Student> getStudents(@RequestParam(required = false) Boolean active) {
