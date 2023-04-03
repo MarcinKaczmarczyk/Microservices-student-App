@@ -1,12 +1,10 @@
 package com.marcin.courses.model.dto;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 public class Student {
 
-    @NotBlank
-    private Long id;
+
     @NotBlank
     private String firstname;
     @NotBlank
@@ -16,21 +14,13 @@ public class Student {
     private Boolean active;
 
 
-    public Student(Long id, String firstname, String lastname, String email, Boolean active) {
-        this.id = id;
+    public Student(String firstname, String lastname, String email, Boolean active) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
         this.active = active;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getFirstname() {
         return firstname;

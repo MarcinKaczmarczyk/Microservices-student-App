@@ -1,7 +1,6 @@
 package com.marcin.students.service;
 
 import com.marcin.students.model.Student;
-import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
@@ -19,5 +18,5 @@ public interface StudentService {
 
     Student patchStudent(Long id, Student student);
 
-
+    List<Student> getStudentsByEmails(List<String> emails);
 }

@@ -4,13 +4,8 @@ import com.marcin.students.exception.StudentError;
 import com.marcin.students.exception.StudentException;
 import com.marcin.students.model.Student;
 import com.marcin.students.repository.StudentRepository;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
-import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -86,6 +81,15 @@ public class StudentServiceImpl implements StudentService {
                     return studentRepository.save(studentFromDb);
                 }).orElseThrow(() -> new StudentException(StudentError.STUDENT_NOT_FOUND));
     }
+
+    @Override
+    public List<Student> getStudentsByEmails(List<String> emails) {
+        if (emails!=null&&emails.size()!=0) {
+            return Optional.of(studentRepository.findAllByEmailIn(emails)).orElseThrow(()->new StudentException(StudentError.STUDENT_NOT_FOUND));
+        }
+        throw new StudentException(StudentError.STUDENT_NOT_FOUND);
+    }
+
     private void validateStudentEmailExists(Student student){
         if (studentRepository.existsByEmail(student.getEmail())) {
             throw new StudentException(StudentError.STUDENT_EMAIL_ALREADY_EXISTS);

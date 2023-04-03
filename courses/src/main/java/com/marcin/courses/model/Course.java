@@ -1,7 +1,6 @@
 package com.marcin.courses.model;
 
-import com.marcin.courses.exception.CourseStatus;
-import com.marcin.courses.model.dto.Student;
+import com.marcin.courses.model.dto.CourseMember;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -10,6 +9,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -33,6 +33,7 @@ public class Course {
     private Long participantsNumber;
     @NotNull
     private CourseStatus status;
+    List<CourseMember> courseMembers=new ArrayList<>();
 
 
     public String getCode() {
@@ -99,4 +100,11 @@ public class Course {
         this.status = status;
     }
 
+    public List<CourseMember> getCourseMembers() {
+        return courseMembers;
+    }
+
+    public void addCourseMembers(CourseMember courseMembers) {
+        this.courseMembers.add(courseMembers);
+    }
 }

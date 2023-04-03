@@ -1,4 +1,4 @@
-package com.marcin.courses.exception;
+package com.marcin.courses.model;
 
 public enum CourseStatus {
 
